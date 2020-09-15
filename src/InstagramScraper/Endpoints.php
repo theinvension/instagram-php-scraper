@@ -4,6 +4,7 @@ namespace InstagramScraper;
 
 class Endpoints
 {
+    const PROXY_URL = 'http://127.0.0.1:3339';
     const BASE_URL = 'https://www.instagram.com';
     const LOGIN_URL = 'https://www.instagram.com/accounts/login/ajax/';
     const ACCOUNT_PAGE = 'https://www.instagram.com/{username}';
