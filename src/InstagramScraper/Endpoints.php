@@ -1,10 +1,10 @@
 <?php
 
 namespace InstagramScraper;
+const PROXY_URL = 'http://127.0.0.1:3339';
 
 class Endpoints
 {
-    const PROXY_URL = 'http://127.0.0.1:3339';
     const BASE_URL = PROXY_URL . '';
     const LOGIN_URL = PROXY_URL . '/accounts/login/ajax/';
     const ACCOUNT_PAGE = PROXY_URL . '/{username}';
