@@ -23,8 +23,8 @@ RapidAPI subscription page: https://rapidapi.com/restyler/api/instagram40
 
 ## Code Example
 ```php
-$instagram = \InstagramScraper\Instagram::withCredentials('username', 'password');
-$instagram->login();
+$instagram = \InstagramScraper\Instagram();
+$instagram->setRapidApiKey('YOUR-RAPID-API-KEY');
 $account = $instagram->getAccountById(3);
 echo $account->getUsername();
 ```
