@@ -23,8 +23,8 @@ RapidAPI subscription page: https://rapidapi.com/restyler/api/instagram40
 
 ## Code Example
 ```php
-$instagram = \InstagramScraper\Instagram::withCredentials('username', 'password');
-$instagram->login();
+$instagram = \InstagramScraper\Instagram();
+$instagram->setRapidApiKey('YOUR-RAPID-API-KEY');
 $account = $instagram->getAccountById(3);
 echo $account->getUsername();
 ```
@@ -70,13 +70,26 @@ $account = $instagram->getAccount('kevin');
 
 ### Using composer
 
-```sh
-composer.phar require raiym/instagram-php-scraper
+Since this is a fork which is not yet published as a package to composer, open your composer.json ant put:
 ```
-or 
-```sh
-composer require raiym/instagram-php-scraper
+{
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/restyler/instagram-php-scraper"
+        }
+    ],
+    "require": {
+        "raiym/instagram-php-scraper": "dev-proxified"
+    }
+}
 ```
+make sure that you put "repositories" and "require" sections in correct parts of composer.json file if it was not empty.
+then launch
+```
+composer update
+```
+
 
 ### If you don't have composer
 You can download it [here](https://getcomposer.org/download/).
