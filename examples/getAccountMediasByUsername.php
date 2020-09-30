@@ -8,7 +8,7 @@ require __DIR__ . '/../vendor/autoload.php';
 $instagram = new \InstagramScraper\Instagram();
 
 // set RapidApi key to use https://rapidapi.com/restyler/api/instagram40
-$instagram->setRapidApiKey('d34eddfb99msh8bb781afba190b1p1af6b2jsn8c46beb84c6e');
+$instagram->setRapidApiKey('YOUR-RAPID-API-KEY');
 
 $medias = $instagram->getMedias('kevin', 25);
 
