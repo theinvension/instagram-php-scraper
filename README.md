@@ -11,7 +11,8 @@ Proxified methods:
 - getAccount()
 - getAccountById()
 - getMedias()
-
+- getMediaByUrl()
+- getMediaByCode()
 
 RapidAPI subscription page: https://rapidapi.com/restyler/api/instagram40
 

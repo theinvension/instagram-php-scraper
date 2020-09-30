@@ -12,6 +12,7 @@ class Endpoints
     const ACCOUNT_JSON_INFO = 'https://instagram40.p.rapidapi.com/account-info?username={username}';
     const ACCOUNT_ACTIVITY = 'https://www.instagram.com/accounts/activity/?__a=1';
     const MEDIA_JSON_INFO = 'https://www.instagram.com/p/{code}/?__a=1';
+    const MEDIA_JSON_BY_URL = 'https://instagram40.p.rapidapi.com/media-info-by-url?url={url}';
     const MEDIA_JSON_BY_LOCATION_ID = 'https://www.instagram.com/explore/locations/{{facebookLocationId}}/?__a=1&max_id={{maxId}}';
     const MEDIA_JSON_BY_TAG = 'https://www.instagram.com/explore/tags/{tag}/?__a=1&max_id={max_id}';
     const GENERAL_SEARCH = 'https://www.instagram.com/web/search/topsearch/?query={query}&count={count}';
@@ -95,6 +96,11 @@ class Endpoints
     public static function getMediaJsonLink($code)
     {
         return str_replace('{code}', urlencode($code), static::MEDIA_JSON_INFO);
+    }
+
+    public static function getMediasJsonByUrlLink($url)
+    {
+        return str_replace('{url}', urlencode($url), static::MEDIA_JSON_BY_URL);
     }
 
     public static function getMediasJsonByLocationIdLink($facebookLocationId, $maxId = '')

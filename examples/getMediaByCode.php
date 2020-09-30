@@ -6,10 +6,11 @@ require __DIR__ . '/../vendor/autoload.php';
 
 // If account is public you can query Instagram without auth
 $instagram = new \InstagramScraper\Instagram();
+$instagram->setRapidApiKey('YOUR-RAPID-API-KEY');
 
 // If account is private and you subscribed to it, first login
-$instagram = \InstagramScraper\Instagram::withCredentials('username', 'password', new Psr16Adapter('Files'));
-$instagram->login();
+// $instagram = \InstagramScraper\Instagram::withCredentials('username', 'password', new Psr16Adapter('Files'));
+// $instagram->login();
 
 $media = $instagram->getMediaByCode('BHaRdodBouH');
 
