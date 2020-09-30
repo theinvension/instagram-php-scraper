@@ -25,6 +25,7 @@ echo $account->getUsername();
 Some methods do not require authentication: 
 ```php
 $instagram = new \InstagramScraper\Instagram();
+$instagram->setRapidApiKey('YOUR-RAPID-API-KEY');
 $nonPrivateAccountMedias = $instagram->getMedias('kevin');
 echo $nonPrivateAccountMedias[0]->getLink();
 ```
@@ -41,7 +42,7 @@ $account = $instagram->getAccountById(3);
 echo $account->getUsername();
 ```
 
-Using proxy for requests:
+Using proxy for requests **(not needed for public endpoints like getAccount() and getMedias() since they go through RapidAPI, so only makes sense for private endpoints requiring login)**:
 
 ```php
 $instagram = new \InstagramScraper\Instagram();
