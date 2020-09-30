@@ -1,5 +1,8 @@
-# Instagram PHP Scraper
+# Instagram PHP Scraper (proxified)
 This library is based on the Instagram web version. We develop it because nowadays it is hard to get an approved Instagram application. The purpose is to support every feature that the web desktop and mobile version support. 
+**This branch contains RapidApi proxified version of scraper due to difficulties with bypassing Instagram firewalls from regular data center ip ranges.**
+Only public methods (not requiring auth, like analyzing public accounts and their posts and comments) of API should be proxified, since Instagram may track ip addresses of login. So use withCredentials() with caution. Check examples/getAccountByUsername.php and examples/getAccountMediasByUsername.php as safe examples of using proxified version.
+RapidAPI implementation page: https://rapidapi.com/restyler/api/instagram40
 
 ## Dependencies
 

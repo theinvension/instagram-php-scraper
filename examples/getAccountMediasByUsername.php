@@ -6,6 +6,10 @@ require __DIR__ . '/../vendor/autoload.php';
 // If account is public you can query Instagram without auth
 
 $instagram = new \InstagramScraper\Instagram();
+
+// set RapidApi key to use https://rapidapi.com/restyler/api/instagram40
+$instagram->setRapidApiKey('d34eddfb99msh8bb781afba190b1p1af6b2jsn8c46beb84c6e');
+
 $medias = $instagram->getMedias('kevin', 25);
 
 // Let's look at $media
@@ -28,8 +32,7 @@ echo "Username: {$account->getUsername()}\n";
 echo "Full name: {$account->getFullName()}\n";
 echo "Profile pic url: {$account->getProfilePicUrl()}\n";
 
-
 // If account private you should be subscribed and after auth it will be available
-$instagram = \InstagramScraper\Instagram::withCredentials('username', 'password', new Psr16Adapter('Files'));
-$instagram->login();
-$medias = $instagram->getMedias('private_account', 100);
+//$instagram = \InstagramScraper\Instagram::withCredentials('username', 'password', new Psr16Adapter('Files'));
+//$instagram->login();
+//$medias = $instagram->getMedias('private_account', 100);

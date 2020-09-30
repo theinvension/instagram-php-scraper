@@ -56,6 +56,8 @@ class Instagram
     private $userAgent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.89 Safari/537.36';
     private $customCookies = null;
 
+    private $rapidApiKey = null;
+
     /**
      * @param string $username
      * @param string $password
@@ -244,6 +246,10 @@ class Instagram
 
         }
 
+        if ($this->getRapidApiKey()) {
+            $headers['x-rapidapi-key'] = $this->getRapidApiKey();
+        }
+
         if ($this->getUserAgent()) {
             $headers['user-agent'] = $this->getUserAgent();
 
@@ -276,6 +282,25 @@ class Instagram
     public function setUserAgent($userAgent)
     {
         return $this->userAgent = $userAgent;
+    }
+
+    /**
+     *
+     * @return string
+     */
+    public function getRapidApiKey()
+    {
+        return $this->rapidApiKey;
+    }
+
+    /**
+     * @param $userAgent
+     *
+     * @return string
+     */
+    public function setRapidApiKey($key)
+    {
+        return $this->rapidApiKey = $key;
     }
 
     /**
@@ -479,11 +504,7 @@ class Instagram
 
         $userArray = $this->decodeRawBodyToJson($response->raw_body);
 
-        if (!isset($userArray['graphql']['user'])) {
-            throw new InstagramException('Response code is ' . $response->code . '. Body: ' . static::getErrorBody($response->body) . ' Something went wrong. Please report issue.', $response->code);
-        }
-
-        return Account::create($userArray['graphql']['user']);
+        return Account::create($userArray);
     }
 
     private static function extractSharedDataFromBody($body)

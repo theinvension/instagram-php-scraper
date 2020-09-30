@@ -9,7 +9,7 @@ class Endpoints
     const ACCOUNT_PAGE = 'https://www.instagram.com/{username}';
     const MEDIA_LINK = 'https://www.instagram.com/p/{code}';
     const ACCOUNT_MEDIAS = 'https://www.instagram.com/graphql/query/?query_hash=e769aa130647d2354c40ea6a439bfc08&variables={variables}';
-    const ACCOUNT_JSON_INFO = 'https://www.instagram.com/{username}/?__a=1';
+    const ACCOUNT_JSON_INFO = 'https://instagram40.p.rapidapi.com/account-info?username={username}';
     const ACCOUNT_ACTIVITY = 'https://www.instagram.com/accounts/activity/?__a=1';
     const MEDIA_JSON_INFO = 'https://www.instagram.com/p/{code}/?__a=1';
     const MEDIA_JSON_BY_LOCATION_ID = 'https://www.instagram.com/explore/locations/{{facebookLocationId}}/?__a=1&max_id={{maxId}}';
@@ -39,11 +39,16 @@ class Endpoints
 
     // Look alike??
     const URL_SIMILAR = 'https://www.instagram.com/graphql/query/?query_id=17845312237175864&id=4663052';
+    const RAPIDAPI_PROXY_URL = 'https://instagram40.p.rapidapi.com';
 
     const GRAPH_QL_QUERY_URL = 'https://www.instagram.com/graphql/query/?query_id={{queryId}}';
 
     private static $requestMediaCount = 30;
 
+    public static function proxifyLink($url)
+    {
+        return static::RAPIDAPI_PROXY_URL . '/proxy?' . http_build_query(['url' => $url]); 
+    }
     /**
      * @param int $count
      */
@@ -59,7 +64,7 @@ class Endpoints
 
     public static function getAccountPageLink($username)
     {
-        return str_replace('{username}', urlencode($username), static::ACCOUNT_PAGE);
+        return self::proxifyLink(str_replace('{username}', urlencode($username), static::ACCOUNT_PAGE));
     }
 
     public static function getAccountJsonLink($username)
@@ -79,7 +84,7 @@ class Endpoints
 
     public static function getAccountMediasJsonLink($variables)
     {
-        return str_replace('{variables}', urlencode($variables), static::ACCOUNT_MEDIAS);
+        return self::proxifyLink(str_replace('{variables}', urlencode($variables), static::ACCOUNT_MEDIAS));
     }
 
     public static function getMediaPageLink($code)
@@ -95,13 +100,13 @@ class Endpoints
     public static function getMediasJsonByLocationIdLink($facebookLocationId, $maxId = '')
     {
         $url = str_replace('{{facebookLocationId}}', urlencode($facebookLocationId), static::MEDIA_JSON_BY_LOCATION_ID);
-        return str_replace('{{maxId}}', urlencode($maxId), $url);
+        return self::proxifyLink(str_replace('{{maxId}}', urlencode($maxId), $url));
     }
 
     public static function getMediasJsonByTagLink($tag, $maxId = '')
     {
         $url = str_replace('{tag}', urlencode($tag), static::MEDIA_JSON_BY_TAG);
-        return str_replace('{max_id}', urlencode($maxId), $url);
+        return self::proxifyLink(str_replace('{max_id}', urlencode($maxId), $url));
     }
 
     public static function getGeneralSearchJsonLink($query, $count = 10)

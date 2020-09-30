@@ -5,9 +5,11 @@ require __DIR__ . '/../vendor/autoload.php';
 
 $instagram = new \InstagramScraper\Instagram();
 
-// For getting information about account you don't need to auth:
+// set RapidApi key to use https://rapidapi.com/restyler/api/instagram40
+$instagram->setRapidApiKey('YOUR-RAPID-API-KEY');
 
-$account = $instagram->getAccount('kevin');
+// For getting information about account you don't need to auth:
+$account = $instagram->getAccountInfo('kevin');
 
 // Available fields
 echo "Account info:\n";
