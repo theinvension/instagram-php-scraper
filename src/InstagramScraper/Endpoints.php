@@ -79,7 +79,7 @@ class Endpoints
 
     public static function getAccountJsonPrivateInfoLinkByAccountId($id)
     {
-        return str_replace('{userId}', urlencode($id), static::ACCOUNT_JSON_PRIVATE_INFO_BY_ID_2);
+        return self::proxifyLink(str_replace('{userId}', urlencode($id), static::ACCOUNT_JSON_PRIVATE_INFO_BY_ID_2));
     }
 
     public static function getAccountMediasJsonLink($variables)

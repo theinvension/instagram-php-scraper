@@ -1,7 +1,9 @@
 <?php
 require __DIR__ . '/../vendor/autoload.php';
 
-$account = (new \InstagramScraper\Instagram())->getAccountById('3');
+$instagram = new \InstagramScraper\Instagram();
+$instagram->setRapidApiKey('YOUR-RAPID-API-KEY');
+$account = $instagram->getAccountById('3');
 
 // Available fields
 echo "Account info:\n";

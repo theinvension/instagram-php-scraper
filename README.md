@@ -7,6 +7,12 @@ RapidAPI proxy handles balancing and bypasses Instagram firewalls intelligently.
 Currently only public methods (not requiring auth, like analyzing public accounts and their posts and comments) of API are proxified, since Instagram may track ip addresses of login and mark your account as suspicious when proxy balancer switches ip address. So use withCredentials() with caution. 
 See examples/getAccountByUsername.php and examples/getAccountMediasByUsername.php as safe examples of using proxified version.
 
+Proxified methods:
+- getAccount()
+- getAccountById()
+- getMedias()
+
+
 RapidAPI subscription page: https://rapidapi.com/restyler/api/instagram40
 
 ## Dependencies
