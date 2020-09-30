@@ -80,7 +80,7 @@ Since this is a fork which is not yet published as a package to composer, open y
         }
     ],
     "require": {
-        "raiym/instagram-php-scraper": "dev-instaproxy"
+        "raiym/instagram-php-scraper": "dev-proxified"
     }
 }
 ```
