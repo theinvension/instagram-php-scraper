@@ -17,6 +17,7 @@ Proxified methods:
 - getAccount()
 - getAccountById()
 - getMedias()
+- getMediasByTag()
 - getMediaByUrl()
 - getMediaByCode()
 
