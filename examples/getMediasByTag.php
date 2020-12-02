@@ -1,12 +1,11 @@
 <?php
-use Phpfastcache\Helper\Psr16Adapter;
-
 require __DIR__ . '/../vendor/autoload.php';
 
-$instagram = \InstagramScraper\Instagram::withCredentials('username', 'password', new Psr16Adapter('Files'));
-$instagram->login();
+$instagram = new \InstagramScraper\Instagram();
 
-$medias = $instagram->getMediasByTag('youneverknow', 20);
+$instagram->setRapidApiKey('YOUR-API-KEY');
+
+$medias = $instagram->getMediasByTag('gift', 20);
 $media = $medias[0];
 echo "Media info:\n";
 echo "Id: {$media->getId()}\n";
