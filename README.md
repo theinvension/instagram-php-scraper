@@ -1,7 +1,10 @@
 # Instagram PHP Scraper (proxified)
-This library is based on the Instagram web version. We develop it because nowadays it is hard to get an approved Instagram application. The purpose is to support every feature that the web desktop and mobile version support. 
 
-**This branch contains RapidApi proxified version of scraper due to difficulties with bypassing Instagram firewalls from regular data center ip ranges.** 
+**This repo contains RapidApi proxified version of Instagram scraper https://github.com/postaddictme/instagram-php-scraper due to difficulties with bypassing Instagram firewalls from regular data center ip ranges.** 
+
+## Why not just use residential proxy?
+Even good residential proxies are banned by Instagram all the time.
+This scaper generally works much better than just using residential or mobile proxies with original scraper, because this one uses big network of high quality proxies, and retries and response quality control are handled automatically.
 
 ## RapidAPI subscription page: 
 https://rapidapi.com/restyler/api/instagram40
