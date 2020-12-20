@@ -4,7 +4,7 @@
 
 ## Why not just use residential proxy?
 Even good residential proxies are banned by Instagram all the time.
-This scaper generally works much better than just using residential or mobile proxies with original scraper, because this one uses big network of high quality proxies, and retries and response quality control are handled automatically.
+This scraper generally works much better than just using residential or mobile proxies with original scraper, because this one uses big network of high quality proxies, and retries and response quality control are handled automatically.
 
 ## RapidAPI subscription page: 
 https://rapidapi.com/restyler/api/instagram40
