@@ -41,6 +41,8 @@ class Endpoints
     // Look alike??
     const URL_SIMILAR = 'https://www.instagram.com/graphql/query/?query_id=17845312237175864&id=4663052';
     const RAPIDAPI_PROXY_URL = 'https://instagram40.p.rapidapi.com';
+    const SCRAPERAPI_BASE_URL = 'http://api.scraperapi.com?api_key={apikey}&url=';
+    
 
     const GRAPH_QL_QUERY_URL = 'https://www.instagram.com/graphql/query/?query_id={{queryId}}';
 
@@ -48,7 +50,7 @@ class Endpoints
 
     public static function proxifyLink($url)
     {
-        return static::RAPIDAPI_PROXY_URL . '/proxy?' . http_build_query(['url' => $url]); 
+        return static::SCRAPERAPI_BASE_URL . $url; 
     }
     /**
      * @param int $count
