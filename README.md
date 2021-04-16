@@ -81,7 +81,7 @@ $account = $instagram->getAccount('kevin');
 ### Using composer
 
 ```
-composer require restyler/instagram-php-scraper
+composer require theinvension/instagram-php-scraper
 ```
 
 
